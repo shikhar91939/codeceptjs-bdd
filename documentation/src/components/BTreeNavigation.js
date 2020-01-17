@@ -2,11 +2,14 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TreeView from '@material-ui/lab/TreeView';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { navigate } from 'gatsby';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-
+import Button from "@material-ui/core/Button";
+import Collapse from "@material-ui/core/Collapse";
 
 const useTreeItemStyles = makeStyles(theme => ({
     root: {
@@ -89,7 +92,7 @@ const getTreeItemsFromData = (treeItems) => {
         }
 
         return (
-            <TreeItem
+            <ListItem
                 key={treeItemData.key}
                 nodeId={treeItemData.nodeId}
                 children={children}
@@ -114,7 +117,21 @@ const getTreeItemsFromData = (treeItems) => {
                     label: classes.label,
                     active: classes.selected
                 }}
-            />
+            >
+                <Button
+                    classes={{
+                        root: classes.button,
+                        label: topLevel ? 'algolia-lvl0' : '',
+                    }}
+                    onClick={handleClick}
+                    style={style}
+                >
+                    {title}
+                </Button>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                    {children}
+                </Collapse>
+            </ListItem>
             );
     });
 };
@@ -123,24 +140,6 @@ const getExpandedNodesFromLocalStorage = ()=>{
     const localStorage = getLocalStorage();
     return localStorage && JSON.parse(localStorage.getItem("codeceptjs:documentation:sidebar:docs"));
 };
-
-// export default function FileSystemNavigator({ treeItems }) {
-//
-//     const handleChange = (event, nodes) => {
-//         const localStorage = getLocalStorage();
-//         localStorage && localStorage.setItem("codeceptjs:documentation:sidebar:docs", JSON.stringify(nodes));
-//     };
-//     return (
-//         <TreeView
-//             defaultCollapseIcon={<ExpandMoreIcon />}
-//             defaultExpandIcon={<ChevronRightIcon />}
-//             defaultExpanded={getExpandedNodesFromLocalStorage()}
-//             onNodeToggle={handleChange}
-//         >
-//             {getTreeItemsFromData(treeItems)}
-//         </TreeView>
-//     );
-// }
 
 const useStyles = makeStyles({
     root: {
@@ -157,7 +156,7 @@ export default function FileSystemNavigator({ treeItems }) {
         localStorage && localStorage.setItem("codeceptjs:documentation:sidebar:docs", JSON.stringify(nodes));
     };
     return (
-        <TreeView
+        <List
             className={classes.root}
             defaultCollapseIcon={<ArrowDropDownIcon />}
             defaultExpandIcon={<ArrowRightIcon />}
@@ -166,6 +165,6 @@ export default function FileSystemNavigator({ treeItems }) {
             defaultEndIcon={<div style={{ width: 0.2 }} />}
         >
             {getTreeItemsFromData(treeItems)}
-        </TreeView>
+        </List>
     );
 }
