@@ -3,9 +3,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
+
+import { ThemeProvider } from '@material-ui/styles';
+import { blue } from '@material-ui/core/colors';
 
 const drawerWidth = 240;
+
+
+const theme = createMuiTheme({
+  palette: {
+    type: 'light',
+    text: {
+      treeItemTextColor: blue
+    }
+  },
+});
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -56,19 +69,25 @@ export default function AppLayout({ children, location }) {
         }
       `}
       render={data => (
-        <div className={classes.siteContainer}>
-          <div className={classes.bodyContainer}>
-            <main className={classes.mainSection}>
-                <div className={classes.toolbar} />
-                <div className={classes.headerAndContent}>
-                    <Header siteTitle={data.site.siteMetadata.title} siteDescription={data.site.siteMetadata.description} props={location}/>
-                    <main className={classes.content}>
-                        {children}
-                    </main>
-                </div>
-            </main>
+        <ThemeProvider theme={theme}>
+          <div className={classes.siteContainer}>
+            <div className={classes.bodyContainer}>
+              <main className={classes.mainSection}>
+                  <div className={classes.toolbar} />
+                  <div className={classes.headerAndContent}>
+                      <Header 
+                        siteTitle={data.site.siteMetadata.title} 
+                        siteDescription={data.site.siteMetadata.description} 
+                        props={location}
+                        theme={theme}/>
+                      <main className={classes.content}>
+                          {children}
+                      </main>
+                  </div>
+              </main>
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
       )}
     />
   );

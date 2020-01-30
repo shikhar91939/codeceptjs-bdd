@@ -13,36 +13,15 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
-  drawer: theme.mixins.toolbar,
   drawerPaper: {
-    backgroundColor: `var(--tree-view-bg-color, ${theme.palette.grey[200]})`,
+    // backgroundColor: `var(--tree-view-bg-color, ${theme.palette.grey[200]})`,
+    backgroundColor: theme.palette.background.secondary,
     boxShadow: '1px 1px 8px lightgray',
     width: drawerWidth,
-  },
-  logoSection: {
-    margin: '10px',
-    height: '105px',
   },
   treeNavigator: {
     margin: '10px',
     padding: '10px',
-  },
-  image: {
-    width: '30%',
-    height: '50%',
-    'margin-right': '-30px',
-    opacity: 0.9
-  },
-  cucumberImage: {
-    width: '30%',
-    height: '50%',
-    'margin-left': '-30px',
-    zIndex:-1
-  },
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
   },
   toolbar: theme.mixins.toolbar,
 }));

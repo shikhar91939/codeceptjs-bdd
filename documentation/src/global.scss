@@ -2,7 +2,6 @@ $code-background-color: #313131;
 $code-font-color: #EFEFEF;
 
 .MuiTypography-body1 {
-  color: #414141 !important;
   letter-spacing: 0.5px;
   img {
     width: 100% !important;
@@ -30,10 +29,10 @@ $code-font-color: #EFEFEF;
 }
 
 code {
-  color: $code-font-color !important;
-  background-color: $code-background-color !important;
+  // color: $code-font-color !important;
+  // background-color: $code-background-color !important;
   font-family: monospace, monospace !important;
-  padding: 0.2em 0.5em !important;
+  // padding: 0.2em 0.5em !important;
 }
 
 .anchor.before {

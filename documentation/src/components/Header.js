@@ -19,6 +19,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from '@material-ui/core/Hidden';
 import Avatar from '@material-ui/core/Avatar';
 import Search from "./Search";
+import { ThemeProvider } from '@material-ui/styles';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -51,10 +52,10 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     flexGrow: 1,
-    color: 'white',
+    color: theme.palette.text.primary,
     "&:hover": {
       textDecoration: 'none',
-      color: 'lightgray'
+      color: theme.palette.text.secondary
     }
   },
 
@@ -88,9 +89,13 @@ function Header({ siteTitle, siteDescription }, props) {
   };
 
   return (
+    <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar 
+          position="fixed" 
+          className={classes.appBar}
+          color={theme.palette.background.paper}>
           <Toolbar>
             <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} className={classes.menuButton}>
               <MenuIcon />
@@ -154,7 +159,7 @@ function Header({ siteTitle, siteDescription }, props) {
                   keepMounted: true, // Better open performance on mobile.
                 }}
             >
-              <Sidebar location={location} />
+              <Sidebar theme={theme} />
             </Drawer>
           </Hidden>
           <Hidden smDown implementation="css">
@@ -165,11 +170,12 @@ function Header({ siteTitle, siteDescription }, props) {
                 variant="permanent"
                 open
             >
-              <Sidebar location={location} />
+              <Sidebar theme={theme} />
             </Drawer>
           </Hidden>
         </nav>
       </div>
+     </ThemeProvider>
   );
 };
 

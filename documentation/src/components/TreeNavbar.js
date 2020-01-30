@@ -36,7 +36,7 @@ const useTreeItemStyles = makeStyles(theme => ({
     },
     label: {
         fontWeight: 'inherit',
-        color: '#1976d2',
+    
         fontSize: '0.98rem',
         '$active > &': {
             fontWeight: theme.typography.fontWeightBold,
@@ -46,13 +46,6 @@ const useTreeItemStyles = makeStyles(theme => ({
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(1.0, 0),
-    },
-    labelIcon: {
-        marginRight: theme.spacing(1),
-    },
-    labelText: {
-        fontWeight: 'inherit',
-        flexGrow: 1,
     }
 }));
 
@@ -96,8 +89,8 @@ const getTreeItemsFromData = (treeItems) => {
                 }
                 selected={selectedIndex === treeItemData.key}
                 style={{
-                    '--tree-view-color': '#1a73e8',
-                    '--tree-view-bg-color': '#e8f0fe',
+                    // '--tree-view-color': '#1a73e8',
+                    // '--tree-view-bg-color': '#e8f0fe',
                     cursor: 'pointer'
                 }}
                 classes={{
@@ -129,9 +122,11 @@ const useStyles = makeStyles({
 export default function FileSystemNavigator({ treeItems }) {
     const classes = useStyles();
     
+
     const handleChange = (event, nodes) => {
         const localStorage = getLocalStorage();
-        localStorage && localStorage.setItem("codeceptjs:documentation:sidebar:docs", JSON.stringify(nodes));
+        localStorage && localStorage
+        .setItem("codeceptjs:documentation:sidebar:docs", JSON.stringify(nodes));
     };
     return (
         <TreeView
