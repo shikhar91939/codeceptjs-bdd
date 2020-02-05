@@ -13,3 +13,11 @@ Feature: Login to Github
     Then he is able to contribute to the repository
 
     
+
+  @login_2
+  Scenario: Fred successfully logs in to contribute to the Git repository
+
+    Given Fred logs in with the valid credentials
+    Then he is able to contribute to the repository
+
+    

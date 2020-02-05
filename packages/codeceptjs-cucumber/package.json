@@ -32,7 +32,7 @@
   "devDependencies": {
     "allure-commandline": "^2.9.0",
     "chalk": "^2.4.2",
-    "codeceptjs": "^2.3.0",
+    "codeceptjs": "koushikmohan1996/CodeceptJS#koushik-worker-api",
     "codeceptjs-saucelabs": "^3.0.0",
     "codeceptjs-shared": "^3.0.0",
     "debug": "^4.1.1",
