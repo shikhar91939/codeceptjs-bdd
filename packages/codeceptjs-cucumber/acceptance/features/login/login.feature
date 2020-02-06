@@ -15,7 +15,7 @@ Feature: Login to Github
     
 
   @login_2
-  Scenario: Fred successfully logs in to contribute to the Git repository
+  Scenario: Fred logs in
 
     Given Fred logs in with the valid credentials
     Then he is able to contribute to the repository
