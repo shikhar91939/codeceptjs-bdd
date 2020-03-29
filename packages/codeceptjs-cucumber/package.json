@@ -50,6 +50,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "codeceptjs": "koushikmohan1996/CodeceptJS#codeceptjs-v3.0",
     "playwright": "^0.12.1"
   }
 }

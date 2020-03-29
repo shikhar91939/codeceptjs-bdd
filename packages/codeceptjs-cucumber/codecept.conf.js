@@ -20,7 +20,8 @@ let conf = {
   },
   helpers: {
     Playwright: {
-      url: HOST
+      url: HOST,
+      show: true
     },
     WebDriver: {
       url: HOST
