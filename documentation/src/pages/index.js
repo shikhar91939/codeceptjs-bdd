@@ -18,6 +18,8 @@ import { Link as GatsbyLink } from 'gatsby';
 
 import multibrowsers from '../images/multi-browsers.png';
 import saucelabs from '../images/saucelabs1.png';
+import mochaSupport from '../images/term.png';
+import salesforceLwc from '../images/salesforce-lwc.jpg';
 import { Divider } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -134,7 +136,16 @@ const renderAppCards = () => {
       description:
         'In CodeceptJS you can combine tests written in Gherkin format with classical acceptance tests. This way you can keep your feature files compact with minimal set of scenarios, and write regular tests to cover all cases. Please note, feature files will be executed before tests. ',
       link: '/03-mocha-styled/1-mocha-style/',
-      imgage: multibrowsers,
+      imgage: mochaSupport,
+    },
+    {
+      size: 3,
+      title: 'WebComponents or LWC',
+      description:
+        'Automate your WebComponents or Salesforce LWC App with either Playwright or Selenium Webdriver. Codeceptjs-BDD provides one solution for both the drivers',
+      link:
+        '/05-01-salesforce-lwc/1-salesforce-lighting-web-components-playwright/',
+      imgage: salesforceLwc,
     },
     {
       size: 3,
