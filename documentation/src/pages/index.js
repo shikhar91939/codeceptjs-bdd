@@ -123,14 +123,16 @@ const renderAppCards = () => {
     {
       size: 3,
       title: 'Web Components',
-      description: 'Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.',
+      description:
+        'Web Components is a suite of different technologies allowing you to create reusable custom elements — with their functionality encapsulated away from the rest of your code — and utilize them in your web apps.',
       link: 'https://developer.mozilla.org/en-US/docs/Web/Web_Components',
       image: pluginBasedImage,
     },
     {
       size: 3,
       title: 'Mocha Support',
-      description: 'In CodeceptJS you can combine tests written in Gherkin format with classical acceptance tests. This way you can keep your feature files compact with minimal set of scenarios, and write regular tests to cover all cases. Please note, feature files will be executed before tests. ',
+      description:
+        'In CodeceptJS you can combine tests written in Gherkin format with classical acceptance tests. This way you can keep your feature files compact with minimal set of scenarios, and write regular tests to cover all cases. Please note, feature files will be executed before tests. ',
       link: '/03-mocha-styled/1-mocha-style/',
       imgage: multibrowsers,
     },
